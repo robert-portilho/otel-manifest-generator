@@ -1,0 +1,27 @@
+receivers:
+  kafka:
+    brokers: ["localhost:9092"]
+    topics: ["test"]
+  otlp:
+    protocols:
+      grpc:
+      http:
+
+processors:
+  batch:
+
+exporters:
+  otlp:
+    endpoint: "otel-collector:4317"
+  debug:
+    verbosity: detailed
+  kafka:
+    brokers: ["localhost:9092"]
+    topics: ["test"]
+
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [otlp, debug]

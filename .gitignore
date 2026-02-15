@@ -1,0 +1,20 @@
+# Binaries
+otel-manifest-generator
+main
+
+# Generated Manifests
+builder-config.yaml
+new-builder.yaml
+my-custom-builder.yaml
+
+# OCB Output
+otelcol-custom/
+_build/
+
+# Go specific
+/vendor/
+go.work
+go.work.sum
+
+# OS specific
+.DS_Store
