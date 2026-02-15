@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"log"
 	"os"
-
 	"otel-manifest-generator/pkg/config"
+	"strings"
 
 	"gopkg.in/yaml.v3"
 )
@@ -91,6 +91,12 @@ func (g *Generator) resolveComponents(components map[string]interface{}, compone
 		seen[compType] = true
 
 		gomod, ok := componentMap[compType]
+		if !ok {
+			// Try removing underscores (e.g., memory_limiter -> memorylimiter)
+			normalizedType := strings.ReplaceAll(compType, "_", "")
+			gomod, ok = componentMap[normalizedType]
+		}
+
 		if !ok {
 			log.Printf("Warning: Component type '%s' not found in upstream manifest. Skipping.", compType)
 			continue

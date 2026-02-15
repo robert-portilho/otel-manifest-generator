@@ -1,0 +1,21 @@
+dist:
+    name: otel-custom-col
+    description: Custom OpenTelemetry Collector build from config
+    output_path: ./otelcol-custom
+    otelcol_version: 0.145.0
+exporters:
+    - gomod: go.opentelemetry.io/collector/exporter/otlpexporter v0.145.0
+    - gomod: go.opentelemetry.io/collector/exporter/debugexporter v0.145.0
+    - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/exporter/kafkaexporter v0.145.0
+extensions:
+    - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextension v0.145.0
+    - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/extension/pprofextension v0.145.0
+    - gomod: go.opentelemetry.io/collector/extension/zpagesextension v0.145.0
+processors:
+    - gomod: go.opentelemetry.io/collector/processor/batchprocessor v0.145.0
+    - gomod: go.opentelemetry.io/collector/processor/memorylimiterprocessor v0.145.0
+receivers:
+    - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/receiver/prometheusreceiver v0.145.0
+    - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/receiver/kafkareceiver v0.145.0
+    - gomod: go.opentelemetry.io/collector/receiver/otlpreceiver v0.145.0
+    - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/receiver/jaegerreceiver v0.145.0

@@ -62,3 +62,21 @@ func TestResolveComponents(t *testing.T) {
 		t.Errorf("Expected 1 resolved component (deduplicated), got %d", len(resolved))
 	}
 }
+
+func TestResolveComponents_Underscore(t *testing.T) {
+	gen := &Generator{
+		ProcessorMap: map[string]string{
+			"memorylimiter": "go.opentelemetry.io/collector/processor/memorylimiterprocessor v0.92.0",
+		},
+	}
+
+	components := map[string]interface{}{
+		"memory_limiter": nil,
+	}
+
+	resolved := gen.resolveComponents(components, gen.ProcessorMap)
+
+	if len(resolved) != 1 {
+		t.Errorf("Expected 1 resolved component for memory_limiter, got %d", len(resolved))
+	}
+}
