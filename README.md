@@ -13,7 +13,7 @@ A Go-based tool to generate an [OpenTelemetry Collector Builder (OCB)](https://g
 Ensure you have Go installed (1.21+ recommended).
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/robert-portilho/otel-manifest-generator.git
 cd otel-manifest-generator
 go mod tidy
 ```
