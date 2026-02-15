@@ -1,6 +1,4 @@
-# Binaries
-otel-manifest-generator
-main
+
 
 # Generated Manifests
 builder-config.yaml

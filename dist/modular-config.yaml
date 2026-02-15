@@ -1,0 +1,18 @@
+receivers: ${file:receivers.yaml}
+processors: ${file:processors.yaml}
+exporters: ${file:exporters.yaml}
+service:
+  extensions: [health_check, pprof, zpages]
+  pipelines:
+    traces:
+      receivers: [otlp, jaeger, kafka]
+      processors: [batch, memory_limiter]
+      exporters: [otlp, debug, kafka]
+    metrics:
+      receivers: [otlp, prometheus]
+      processors: [batch]
+      exporters: [otlp, debug]
+extensions:
+  health_check:
+  pprof:
+  zpages:

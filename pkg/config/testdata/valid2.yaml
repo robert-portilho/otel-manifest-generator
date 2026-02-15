@@ -1,0 +1,13 @@
+receivers:
+  hostmetrics:
+    collection_interval: 10s
+processors:
+  memory_limiter:
+exporters:
+  otlp:
+service:
+  pipelines:
+    metrics:
+      receivers: [hostmetrics]
+      processors: [memory_limiter]
+      exporters: [otlp]

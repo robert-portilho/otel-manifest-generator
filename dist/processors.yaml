@@ -1,0 +1,8 @@
+batch:
+  send_batch_size: 1000
+  timeout: 10s
+
+memory_limiter:
+  check_interval: 1s
+  limit_percentage: 70
+  spike_limit_percentage: 30

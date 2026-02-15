@@ -1,0 +1,4 @@
+batch:
+  timeout: 1s
+memory_limiter:
+  limit_mib: 100

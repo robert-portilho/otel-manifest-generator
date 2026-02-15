@@ -45,6 +45,14 @@ go run cmd/otel-manifest-generator/main.go -output builder-config.yaml otel-conf
 go run cmd/otel-manifest-generator/main.go -output dist/builder.yaml base-config.yaml production-override.yaml
 ```
 
+## Testing
+
+To run the unit tests for all packages, use the following command:
+
+```bash
+go test ./... -v
+```
+
 ## Project Structure
 
 -   `cmd/otel-manifest-generator`: Main entry point applications.

@@ -1,0 +1,14 @@
+receivers:
+  otlp/1:
+    protocols:
+      grpc:
+processors:
+  batch:
+exporters:
+  debug:
+service:
+  pipelines:
+    traces:
+      receivers: [otlp/1]
+      processors: [batch]
+      exporters: [debug]

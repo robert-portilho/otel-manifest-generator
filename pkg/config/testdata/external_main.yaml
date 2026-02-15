@@ -1,0 +1,14 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+processors: ${file:processors.yaml}
+exporters:
+  otlp:
+    endpoint: "otel-collector:4317"
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [otlp]
